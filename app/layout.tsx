@@ -4,7 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 
 const balsamiq_sans = Balsamiq_Sans({
-  weight: ["400", "700"]
+  weight: ["400", "700"],
+  subsets: ["latin"]
 })
 
 export const metadata: Metadata = {
