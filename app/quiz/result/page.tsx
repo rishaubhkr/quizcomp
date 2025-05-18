@@ -50,13 +50,13 @@ const Result = () => {
                                         animate={{ opacity: 1, scale: 1 }}
                                         transition={{ duration: 0.5 }}
                                     >
-                                        {result?.totalMarks.toFixed(2)} / {quiz?.questions.length! * 5}
+                                        {result?.totalMarks.toFixed(2)} / {quiz.questions.length * 5}
                                     </motion.p>
 
                                     {/* <p className='text-2xl'></p> */}
                                 </motion.div>
                                 <div className='flex gap-1 flex-wrap p-2'>
-                                    {Array.from({ length: quiz?.noOfQuestions! }).map((_, index) => (
+                                    {Array.from({ length: quiz.noOfQuestions }).map((_, index) => (
                                         <div key={index} className={`size-5 text-xs flex items-center justify-center border rounded-xs ${result?.attemptedQuestions.includes(index) ? result.answers.filter(a => a.questionIndex === index)[0].correct ? 'bg-green-500/50 text-green-300 border-green-500/50' : 'bg-red-500/50 text-red-300 border-red-500/60' : 'bg-white/10 text-white/70 border-white/10'}`}>{result?.attemptedQuestions.includes(index) ? result.answers.filter(a => a.questionIndex === index)[0].correct ? 'C' : 'I' : 'S'}</div>
                                     ))}
                                 </div>

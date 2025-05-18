@@ -45,7 +45,7 @@ const Home = () => {
         <div className='bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 sm:p-8 shadow-xl sm:w-[520px]'>
           <div className='p-5 pt-4 space-y-4'>
             <div className='space-y-1'>
-              <p className='text-2xl font-bold'>What's your Quiz source ?</p>
+              <p className='text-2xl font-bold'>What&apos;s your Quiz source ?</p>
               <p className='text-foreground/50'>Use a topic or paste your own text — we&apos;ll generate quiz instantly!</p>
             </div>
             <Tabs defaultValue="topic" className="w-full">
