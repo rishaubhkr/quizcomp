@@ -1,13 +1,14 @@
 'use client'
 import { Slider } from '@/components/ui/slider'
 import { Gemini } from '@/lib/gemini_service'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Loader2, Sparkles } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
+import { QuizType } from '@/lib/types'
 
 const Home = () => {
   const router = useRouter()
@@ -21,7 +22,7 @@ const Home = () => {
     setLoading(true)
     if (!topic && !text) return;
     const res = await Gemini({ topic: topic || undefined, text: text || undefined, n: noOfQuestions });
-    const quiz: Quiz = {
+    const quiz: QuizType = {
       topic: topic,
       noOfQuestions: noOfQuestions,
       questions: res.questions
@@ -45,7 +46,7 @@ const Home = () => {
           <div className='p-5 pt-4 space-y-4'>
             <div className='space-y-1'>
               <p className='text-2xl font-bold'>What's your Quiz source ?</p>
-              <p className='text-foreground/50'>Use a topic or paste your own text — we’ll generate quiz instantly!</p>
+              <p className='text-foreground/50'>Use a topic or paste your own text — we&apos;ll generate quiz instantly!</p>
             </div>
             <Tabs defaultValue="topic" className="w-full">
               <TabsList className='w-full h-16 *:text-lg mb-4'>

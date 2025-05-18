@@ -1,11 +1,11 @@
-interface Quiz {
+export type QuizType = {
     topic?: string;
     text?: string;
     noOfQuestions: number;
-    questions: Question[]
+    questions: QuestionType[]
 }
 
-interface Question {
+export type QuestionType = {
     question: string;
     option1: string;
     option2: string;
@@ -14,7 +14,7 @@ interface Question {
     answer: 1 | 2 | 3 | 4;
 }
 
-interface Result {
+export type ResultType = {
     attemptedQuestions: number[];
     answers: { questionIndex: number, correct: boolean, answer: 1 | 2 | 3 | 4, marks: number }[]
     totalMarks: GLfloat;

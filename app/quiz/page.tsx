@@ -3,9 +3,10 @@ import { BookOpen, FileText, Play, Timer } from 'lucide-react';
 import React, { useEffect, useState } from 'react'
 import { motion } from "framer-motion"
 import { useRouter } from 'next/navigation';
+import { QuizType } from '@/lib/types';
 
 const Quiz = () => {
-    const [quiz, setQuiz] = useState<Quiz>()
+    const [quiz, setQuiz] = useState<QuizType>()
     const router = useRouter()
 
     useEffect(() => {
@@ -17,7 +18,7 @@ const Quiz = () => {
             }
             setQuiz(JSON.parse(quizData))
         }
-    }, [])
+    }, [router])
     return (
         <main className='flex justify-center w-screen h-full items-center bg-transparent p-5'>
             <header className='bg-primary/5 flex items-center h-16 justify-between rounded-xl top-4 fixed sm:w-[800px] w-[calc(100%-32px)] px-8 border border-primary/10'>
@@ -34,7 +35,9 @@ const Quiz = () => {
                             <p className='text-2xl font-bold flex items-start gap-2'><BookOpen className='w-6 h-6 pt-1' /> {quiz?.topic || quiz?.text}</p>
                             <p className='text-foreground/50 flex items-center gap-1'><Timer className='w-4 h-4' /> 60s / Question</p>
                             <p className='text-foreground/50 flex items-center gap-1'><FileText className='w-4 h-4' /> {quiz?.noOfQuestions} Questions</p>
-                            <p className='text-foreground/50'>Total {quiz?.noOfQuestions! * 5} Marks (5 Marks per Question based on answering time)</p>
+                            <p className='text-foreground/50'>
+                                Total {(quiz?.noOfQuestions ?? 0) * 5} Marks (5 Marks per Question based on answering time)
+                            </p>
                         </div>
                         <motion.button
                             onClick={() => router.push("/quiz/question/0")}

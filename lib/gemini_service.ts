@@ -45,7 +45,7 @@ Rules:
     try {
       const json = JSON.parse(cleanJson)
       return json;
-    } catch (error) {
+    } catch {
       return null
     }
 }
